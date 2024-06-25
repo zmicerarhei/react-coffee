@@ -1,0 +1,28 @@
+.about {
+    margin-bottom: 60px;
+
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+
+
+    }
+
+    &__img {
+        height: 355px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        max-width: 345px;
+        text-align: center;
+    }
+}

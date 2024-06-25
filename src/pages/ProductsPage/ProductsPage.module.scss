@@ -1,0 +1,122 @@
+.about {
+    margin-bottom: 60px;
+
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+
+
+    }
+
+    &__img {
+        height: 355px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__text {
+        max-width: 345px;
+        text-align: center;
+    }
+}
+
+.products {
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    font-size: 0.875rem;
+
+
+    &__search {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__input {
+        height: 30px;
+        border: none;
+        border-radius: 4px;
+        // outline-color: transparent;
+        outline: none;
+        box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
+        padding: 0 12px;
+        font-weight: 400;
+        font-family: inherit;
+        font-size: 12px;
+
+        &::placeholder {
+            text-align: center;
+            color: rgba(0, 0, 0, 0.5);
+            transition: opacity 0.2s ease;
+        }
+
+        &:focus {
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.45);
+
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+    }
+
+    &__sort {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+    }
+
+    &__btns {
+        display: flex;
+        gap: 5px;
+
+        button {
+            height: 30px;
+            background: #fff;
+            border: none;
+            color: #000;
+            font-family: inherit;
+            font-size: 0.75rem;
+            line-height: 17px;
+            text-align: center;
+            width: 75px;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .25);
+            cursor: pointer;
+        }
+
+        :nth-child(1) {
+            border-radius: 4px 0 0 4px;
+        }
+
+        :nth-child(3) {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+}
+
+.divider {
+    background-color: #000;
+    height: 1px;
+    width: 240px;
+    margin-bottom: 60px;
+}

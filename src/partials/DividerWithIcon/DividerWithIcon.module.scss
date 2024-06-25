@@ -1,0 +1,38 @@
+.divider {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    fill: #FFF;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: #FFF;
+        height: 1px;
+        width: 60px;
+        bottom: 50%;
+    }
+
+    &::before {
+        right: 55px;
+    }
+
+    &::after {
+        left: 55px;
+    }
+
+    &__black {
+        fill: #000;
+
+        &::before,
+        &::after {
+            background-color: #000;
+            ;
+        }
+    }
+
+}
