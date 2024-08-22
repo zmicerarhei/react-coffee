@@ -1,35 +1,41 @@
-import { MainPage, ProductsPage, ProductPage, BeansPage } from '../../pages';
-import Layout from '../Layout/Layout';
+import { useLocation } from 'react-router-dom';
+import { useOutlet } from 'react-router-dom';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { Suspense, useEffect } from 'react';
 
-import { Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Preloader from '../Preloader/Preloader';
 
-import { useHttp } from '../../hooks/http.hook';
-import { fetchProducts } from '../../slices/productsSlice';
+import { routes } from '../../routes/routes';
 
 import './App.css';
 
 const App = () => {
-  const { request } = useHttp();
-  const dispatch = useDispatch();
-  const products = useSelector(state => state.productsSlice.products);
-  // const [goods, setGoods] = useState([]);
+  const location = useLocation();
+  const currentOutlet = useOutlet();
 
   useEffect(() => {
-    dispatch(fetchProducts(request));
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  const { nodeRef } = routes.find(route => route.path === location.pathname) ?? {};
 
   return (
     <div className="app">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<MainPage products={products} />} />
-          <Route path="/products" element={<ProductsPage products={products} />} />
-          <Route path="/products/:id" element={<ProductPage />} />
-          <Route path="/beans" element={<BeansPage />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Preloader />}>
+        <Header />
+        <SwitchTransition>
+          <CSSTransition key={location.pathname} nodeRef={nodeRef} timeout={300} classNames="page" unmountOnExit>
+            {() => (
+              <div ref={nodeRef} className="page">
+                {currentOutlet}
+              </div>
+            )}
+          </CSSTransition>
+        </SwitchTransition>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

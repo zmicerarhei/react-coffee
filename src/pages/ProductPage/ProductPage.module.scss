@@ -22,6 +22,10 @@
             text-align: left;
             margin-bottom: 16px;
         }
+
+        span {
+            font-size: 1.5rem;
+        }
     }
 
     &__image {
@@ -29,6 +33,7 @@
 
         img {
             width: 100%;
+            object-fit: cover;
         }
     }
 }

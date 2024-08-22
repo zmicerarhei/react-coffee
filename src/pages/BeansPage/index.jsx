@@ -1,6 +1,6 @@
-import smoking_cofee from '../../assets/img/smoking_coffee.png';
-import { DividerWithIcon } from '../../partials';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
+import '@splidejs/react-splide/css';
 import styles from './BeansPage.module.scss';
 
 const BeansPage = () => {
@@ -8,32 +8,44 @@ const BeansPage = () => {
     <>
       <section className={styles.about}>
         <div className="container">
-          <div className={styles.about__wrapper}>
-            <div className={styles.about__img}>
-              <img src={smoking_cofee} alt="morning coffee" />
-            </div>
-            <div className={styles.about__text}>
-              <h2 className="title mb-20">About our beans</h2>
-              <DividerWithIcon color="black" mb="34" />
-              <p className="description mb-20">
-                Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
-              </p>
-              <p className="description mb-20">
-                Afraid at highly months do things on at. Situation recommend objection do intention
-                <br />
-                so questions.
-              </p>
-              <p className="description">
-                As greatly removed calling pleased improve an.
-                <br />
-                Last ask him cold feel
-                <br />
-                met spot shy want. Children me laughing we prospect answered followed. At it went
-                <br />
-                is song that held help face.
-              </p>
-            </div>
-          </div>
+          <Splide
+            onPaginationMounted={splide => {
+              const items = splide.Components.Pagination.items;
+            }}
+            options={{
+              type: 'loop',
+              width: '100%',
+              height: 500,
+              interval: 5000,
+              speed: 2500,
+              arrows: true,
+              pagination: false,
+            }}
+            aria-label="Homepage Slider"
+          >
+            <SplideSlide>
+              <img
+                className={styles.slider__img}
+                src={process.env.PUBLIC_URL + `/images/gallery/raw_beans.png`}
+                alt="raw_beans"
+              />
+              <h1>HELLO</h1>
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                className={styles.slider__img}
+                src={process.env.PUBLIC_URL + `/images/gallery/roasted_beans.png`}
+                alt="raw_beans"
+              />
+            </SplideSlide>
+            <SplideSlide>
+              <img
+                className={styles.slider__img}
+                src={process.env.PUBLIC_URL + `/images/gallery/plantation.png`}
+                alt="raw_beans"
+              />
+            </SplideSlide>
+          </Splide>
         </div>
       </section>
     </>

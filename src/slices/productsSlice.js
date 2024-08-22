@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { useHttp } from '../hooks/http.hook';
 
 const initialState = {
   products: [],
@@ -7,8 +6,7 @@ const initialState = {
 };
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', request => {
-  // const { request } = useHttp();
-  return request('http://localhost:3001/products');
+  return request('https://json-server-online.vercel.app/products');
 });
 
 const productsSlice = createSlice({
@@ -30,7 +28,6 @@ const productsSlice = createSlice({
   },
 });
 
-const { actions, reducer } = productsSlice;
+const { reducer } = productsSlice;
 
 export default reducer;
-export const { productsFetching, productsFetched, productsFetchingError } = actions;

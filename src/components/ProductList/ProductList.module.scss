@@ -1,0 +1,10 @@
+.products {
+
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 70px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+}

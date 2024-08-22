@@ -68,14 +68,18 @@
   "filters": [
     {
       "id": 1,
-      "label": "Brazil"
+      "label": "All"
     },
     {
       "id": 2,
-      "label": "Kenya"
+      "label": "Brazil"
     },
     {
       "id": 3,
+      "label": "Kenya"
+    },
+    {
+      "id": 4,
       "label": "Peru"
     }
   ]

@@ -1,44 +1,22 @@
 .header {
     text-align: center;
     color: #FFF;
+    padding: 50px 25px 85px;
 
     &__main {
         background: url('../../assets/img/bg/main_bg.png') no-repeat center/cover;
-        padding: 50px 0 200px;
+        padding-bottom: 200px;
         margin-bottom: 80px;
     }
 
     &__products {
         background: url('../../assets/img/bg/coffee_bg.png') no-repeat center/cover;
-        padding: 50px 0 85px;
         margin-bottom: 70px;
     }
 
     &__beans {
         background: url('../../assets/img/bg/beans_bg.png') no-repeat center/cover;
-        padding: 50px 0 85px;
         margin-bottom: 70px;
-    }
-
-    .nav {
-        display: flex;
-        align-items: end;
-        margin: 0 auto 110px;
-        height: 40px;
-        max-width: 1200px;
-
-        &__items {
-            display: flex;
-            gap: 40px;
-            list-style-type: none;
-        }
-
-        &__item {
-            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-size: 0.875rem;
-            color: #FFF;
-            text-decoration: none;
-        }
     }
 
     .promo {
@@ -68,7 +46,23 @@
             border: 1px solid #FFF;
             border-radius: 3px;
             box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #FFF;
+                color: #000
+            }
         }
     }
 
+}
+
+@media (max-width: 767px) {
+    .header {
+        .promo {
+            &__title {
+                margin-top: 110px;
+            }
+        }
+    }
 }

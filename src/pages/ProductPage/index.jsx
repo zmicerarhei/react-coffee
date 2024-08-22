@@ -6,17 +6,16 @@ import { useParams } from 'react-router';
 import { useHttp } from '../../hooks/http.hook';
 
 const ProductPage = () => {
-  const { request, setProcess } = useHttp();
+  const { request } = useHttp();
   const params = useParams();
   const [currentProduct, setCurrentProduct] = useState({});
 
   useEffect(() => {
-    request(`http://localhost:3001/products/${params.id}`)
+    request(`https://json-server-online.vercel.app/products/${params.id}`)
       .then(res => {
         setCurrentProduct(res);
       })
       .catch(e => {
-        setProcess('error');
         console.error(e);
       });
   }, []);
@@ -43,7 +42,7 @@ const ProductPage = () => {
             laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <p className="description">
-            <b>Price:</b> {currentProduct.price}$
+            <b>Price:</b> <span>{currentProduct.price}$</span>
           </p>
         </div>
       </div>

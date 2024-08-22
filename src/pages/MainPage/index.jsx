@@ -1,9 +1,9 @@
-import Card from '../../components/Card/Card';
+import ProductList from '../../components/ProductList/ProductList';
 import { DividerWithIcon } from '../../partials';
 
 import styles from './MainPage.module.scss';
 
-const MainPage = ({ products }) => {
+const MainPage = () => {
   return (
     <>
       <section className={styles.about}>
@@ -27,9 +27,7 @@ const MainPage = ({ products }) => {
       <section className={styles.best}>
         <div className="container">
           <h2 className="title">Our best</h2>
-          <div className={styles.best__wrapper}>
-            {products.map(item => item.best === true && <Card key={item.id} {...item} />)}
-          </div>
+          <ProductList best={true} />
         </div>
       </section>
     </>
